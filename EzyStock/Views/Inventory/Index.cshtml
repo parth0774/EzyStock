@@ -1,0 +1,34 @@
+﻿@model List<Inventory>
+<p><a asp-action="create" asp-controller="order" class="btn">Create Order</a> |
+<a asp-action="viewordersuser" asp-controller="order" class="btn">View Order</a> |
+<a asp-action="viewinvoiceuser" asp-controller="invoice" class="btn">View Invoice</a></p>
+<h2>Product Inventory</h2>
+<link rel="stylesheet" href="/css/styles1.css">
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Last Order Date</th>
+            <th>Last Order Quantity</th>
+            <th>Update Quantity</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var inventory in Model)
+        {
+            <tr>               
+                <td>@inventory.Product?.ProductName</td>
+                <td>@inventory.Quantity</td>
+                <td>@inventory.LastOrderDate.ToShortDateString()</td>
+                <td>@inventory.LastOrderQuantity</td>
+                <td>
+                    <form asp-action="UpdateQuantity" asp-route-id="@inventory.Id" method="post">
+                        <input type="number" name="quantity" value="@inventory.Quantity" />
+                        <button type="submit" class="btn">Update</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
