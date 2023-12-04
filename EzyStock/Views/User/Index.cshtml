@@ -1,0 +1,28 @@
+﻿@model List<User>
+
+<!-- Display Users -->
+<table>
+    <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Role</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@user.UserName</td>
+            <td>@user.UserEmail</td>
+            <td>@user.UserPhone</td>
+            <td>@user.Role</td>
+            <td>
+                <form asp-action="Delete" asp-route-id="@user.Id" method="post">
+                    <input type="submit" value="Delete" />
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+
+<a asp-action="Create">Create User</a>

@@ -1,0 +1,21 @@
+﻿@model EzyStock.Models.Product
+<link rel="stylesheet" href="/css/styles1.css">
+
+<h2>Delete Confirmation</h2>
+
+<div>
+    <h4>Product Deleted</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Product Name
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+    </dl>
+
+    <div>
+        <a asp-action="Index" class="btn">Back to List</a>
+    </div>
+</div>

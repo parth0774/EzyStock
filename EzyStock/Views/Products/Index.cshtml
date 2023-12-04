@@ -1,0 +1,61 @@
+﻿@model IEnumerable<EzyStock.Models.Product>
+<link rel="stylesheet" href="/css/styles1.css">
+
+
+
+<h2>Products List</h2>
+
+<p>
+    
+   
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductPrice)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductCategory)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductPrice)
+                </td>
+                <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+    <button onclick="goBack()" class="btn">Go Back</button>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
