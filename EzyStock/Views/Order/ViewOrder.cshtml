@@ -1,0 +1,29 @@
+﻿@model EzyStock.Models.Order
+<link rel="stylesheet" href="/css/styles1.css">
+
+<h2>Order Details</h2>
+
+<div>
+    <h4>Supplier: @Model.Supplier?.SupplierName</h4>
+    <h4>Status: @Model.Status</h4>
+    <p>  <a asp-action="viewordersuser" class="btn">View All Orders</a></p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in ViewBag.OrderProduct)
+            {
+                <tr>
+                    <td>@product.ProductId</td>
+                    <td>@product.Product?.ProductName</td>
+                    <td>@product.Quantity</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

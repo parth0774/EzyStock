@@ -1,0 +1,33 @@
+﻿@model List<Invoice>
+<h2>Invoice List</h2>
+<link rel="stylesheet" href="/css/styles1.css">
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Invoice ID</th>
+                <th>Invoice Date</th>
+                <th>Invoice Status</th>
+                <th>Order ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var invoice in Model)
+            {
+                <tr>
+                    <td>@invoice.Id</td>
+                    <td>@invoice.Date</td>
+                    <td>@invoice.Status</td>
+                    <td>@invoice.OrderId</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<button onclick="goBack()" class="btn">Go Back</button>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>

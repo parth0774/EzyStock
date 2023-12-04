@@ -1,0 +1,33 @@
+﻿@model List<Order>
+<link rel="stylesheet" href="/css/styles1.css">
+
+<h2>Order List</h2>
+
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Order Status</th>
+                <th>Supplier</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model)
+            {
+                <tr>
+                    <td>@order.Id</td>
+                    <td>@order.Status</td>
+                    <td>@order.Supplier?.SupplierName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<button onclick="goBack()" class="btn">Go Back</button>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>

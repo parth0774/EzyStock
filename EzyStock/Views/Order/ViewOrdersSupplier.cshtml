@@ -1,0 +1,38 @@
+﻿@model IEnumerable<EzyStock.Models.Order>
+<link rel="stylesheet" href="/css/styles1.css">
+
+<h2>Order List</h2>
+
+<div>
+      <table class="table">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Order Status</th>
+                    <th>Supplier</th>
+                    <th>Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Order order in Model)
+                {
+                    <tr>
+                        <td>@order.Id</td>
+                        <td>@order.Status</td>
+                        <td>@order.Supplier?.SupplierName</td>
+                        <td>
+                        <a asp-action="ApproveRequest" asp-route-id="@order.Id" class="btn">Approve</a> |
+                        <a asp-action="CancelRequest" asp-route-id="@order.Id" class="btn">Cancel</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+      </table>
+</div>
+<button onclick="goBack()" class="btn">Go Back</button>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<EzyStock.Models.Invoice>
+
+<h2>Invoice List</h2>
+<link rel="stylesheet" href="/css/styles1.css">
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Invoice ID</th>
+                <th>Invoice Date</th>
+                <th>Invoice Status</th>
+                <th>Order ID</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var invoice in Model)
+            {
+                <tr>
+                    <td>@invoice.Id</td>
+                    <td>@invoice.Date</td>
+                    <td>@invoice.Status</td>
+                    <td>@invoice.OrderId</td>
+                    <td>
+                        <a asp-action="PaidInvoice" asp-route-id="@invoice.Id" class="btn">Paid</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<button onclick="goBack()" class="btn">Go Back</button>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>

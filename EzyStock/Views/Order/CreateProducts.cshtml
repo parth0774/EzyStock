@@ -1,0 +1,42 @@
+﻿@model EzyStock.Models.Supplier
+<link rel="stylesheet" href="/css/styles1.css">
+
+<h2>Select Products for Order</h2>
+<p>Selected Supplier: @Model.SupplierName</p>
+
+@using (Html.BeginForm("Create", "Order"))
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model.Products)
+            {   
+              <tr>
+                    <td><input type="hidden" name="productIds" value="@product.Id" />@product.Id</td>
+                    <td>@product.ProductName</td>
+                    <td><input type="number" min="0" name="quantities" value="0"/></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <input type="hidden" name="supplier" value=@Model.Id class="btn" />
+    <input type="submit" value="Add Products to Order" class="btn" />
+}
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+<button onclick="goBack()" class="btn">Go Back</button>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
