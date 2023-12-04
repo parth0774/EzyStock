@@ -1,0 +1,17 @@
+﻿@using EzyStock.Models
+<link rel="stylesheet" href="/css/styles1.css">
+
+<h4>Supplier: @Model.SupplierName</h4>
+<h4>Supplier Id: @Model.Id</h4>
+<p><a asp-controller="Products" asp-action="Index" asp-route-supplierId="@Model.Id" class="btn">Product details</a> |
+    <a asp-controller="Products" asp-action="Create" asp-route-supplierId="@Model.Id" class="btn">Add Product</a> | 
+    <a asp-controller="order" asp-action="vieworderssupplier" asp-route-Id="@Model.Id" class="btn">View Orders</a> |
+    <a asp-controller="invoice" asp-action="viewinvoicesupplier" asp-route-Id="@Model.Id" class="btn">View Invoice</a>
+</p>
+<button onclick="goBack()" class="btn">Go Back</button>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>

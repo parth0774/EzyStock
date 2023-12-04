@@ -1,0 +1,23 @@
+﻿@model List<EzyStock.Models.Supplier>
+
+<h2>Select Supplier</h2>
+<link rel="stylesheet" href="/css/styles1.css">
+<table class="table">
+    <thead>
+        <tr>
+            <th>Supplier ID</th>
+            <th>Supplier Name</th>
+            <th>Select</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var supplier in Model)
+        {
+            <tr>
+                <td>@supplier.Id</td>
+                <td>@supplier.SupplierName</td>
+                <td><a asp-action="supplieroperation" asp-route-id="@supplier.Id" class="btn">Select</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
