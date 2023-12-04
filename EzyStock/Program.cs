@@ -1,7 +1,11 @@
+using EzyStock.DataAccess;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<DB_Context>(options => options.UseSqlite(builder.Configuration.GetConnectionString("SQLiteConnection")));
 
 var app = builder.Build();
 
@@ -22,6 +26,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=home}/{action=login}/{id?}");
 
 app.Run();
