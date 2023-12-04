@@ -1,0 +1,59 @@
+﻿h1 {
+    font-size: 36px;
+    color: #333;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('background.jpg'); /* Add the path to your background image */
+    background-size: cover; /* Adjust the background size as needed */
+    background-position: center; /* Center the background image */
+}
+
+div > a {
+    margin-right: 10px;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #3498db;
+    color: #3498db;
+    border-radius: 4px;
+    background-color: #ecf0f1;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 1.2em;
+}
+
+    div > a:hover {
+        background-color: #3498db;
+        color: #fff;
+    }
+
+.row {
+    margin-bottom: 15px;
+}
+
+.col-sm-2 {
+    font-weight: bold;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 1em;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
